@@ -8,6 +8,10 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
+    public GameObject Idle;
+    public GameObject Run;
+
+
     public float groundDrag;
 
     public float jumpForce;
@@ -44,10 +48,13 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        Run.SetActive(false);
     }
 
     private void Update()
     {
+       
         PUNIE = GroundedChack.GetComponent<GroundCheck>().PUNI;
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
@@ -81,6 +88,19 @@ public class PlayerMovementTutorial : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         };
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Idle.SetActive(false);
+            Run.SetActive(true);
+        };
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            Idle.SetActive(true);
+            Run.SetActive(false);
+        };
+
+
+
     }
 
     private void FixedUpdate()

@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public bool PUNI = true ;
+    public bool PUNI = true;
+
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("1");
-        PUNI = false;
+        // Vérifie si l'objet entrant est le joueur (Player)
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("1");
+            PUNI = false;
+        }
     }
+
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("0");
-        PUNI = true;
+        // Réinitialise PUNI lorsque le joueur quitte la zone de détection
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("0");
+            PUNI = true;
+        }
     }
 }
