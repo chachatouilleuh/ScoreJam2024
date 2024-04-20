@@ -15,6 +15,9 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    public GameObject GroundedChack;
+    public bool PUNIE = false;
+
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -45,6 +48,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void Update()
     {
+        PUNIE = GroundedChack.GetComponent<GroundCheck>().PUNI;
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
@@ -56,6 +60,27 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Debug.Log("Left Shift key was pressed");
+            moveSpeed = moveSpeed * 2;
+        };
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Debug.Log("Left Shift key was released");
+            moveSpeed = moveSpeed / 2;
+        };
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(grounded);
+            readyToJump = false;
+
+            Jump();
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+        };
     }
 
     private void FixedUpdate()
@@ -116,4 +141,5 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         readyToJump = true;
     }
+
 }
