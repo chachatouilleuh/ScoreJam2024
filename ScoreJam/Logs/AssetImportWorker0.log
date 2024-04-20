@@ -2636,3 +2636,153 @@ Received Import Request.
   path: Assets/3D/Shaders
   artifactKey: Guid(67593095c9f591a489a56efbcd0f16fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/3D/Shaders using Guid(67593095c9f591a489a56efbcd0f16fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f425066913789b9cd4f497d623e73aa') in 0.003696 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5409.696103 seconds.
+  path: Assets/Audio
+  artifactKey: Guid(198dcad96cd3e4d4ca1196c668507507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio using Guid(198dcad96cd3e4d4ca1196c668507507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f11286c50da88e58edd7e404658cfb7c') in 0.007448 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.221762 seconds.
+  path: Assets/Audio/Music
+  artifactKey: Guid(42c397c0f4bc9e34b9e08535e7a23681) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/Music using Guid(42c397c0f4bc9e34b9e08535e7a23681) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cb6ec03c57c247bdc15e37ef67e191e') in 0.004998 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 59.152364 seconds.
+  path: Assets/Audio/Music/RaccoonJam_Main.wav
+  artifactKey: Guid(0f5d89c667565544680ea3b647dbda0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/Music/RaccoonJam_Main.wav using Guid(0f5d89c667565544680ea3b647dbda0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51e9b2b8e15d8f5a0000df9bc2097481') in 0.028536 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 83.950090 seconds.
+  path: Assets/Audio/Music/RaccoonScoreJam_Main.wav
+  artifactKey: Guid(8e213d5be2514fe4ab996cc8d4ac5a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/Music/RaccoonScoreJam_Main.wav using Guid(8e213d5be2514fe4ab996cc8d4ac5a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc61589e604f3e6d4dfac3a948e5e0dd') in 0.004091 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 62.423947 seconds.
+  path: Assets/Audio/Music/RaccoonScoreJam_Main.mp3
+  artifactKey: Guid(b4a8e65fe39807d47bc578a8de828777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/Music/RaccoonScoreJam_Main.mp3 using Guid(b4a8e65fe39807d47bc578a8de828777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '850f931253078edec84249f67b2fb1c9') in 0.140018 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004373 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.485 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1487ms)
+		BeginReloadAssembly (257ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (13ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (98ms)
+		EndReloadAssembly (1095ms)
+			LoadAssemblies (135ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (301ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (82ms)
+			SetupLoadedEditorAssemblies (557ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (37ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (321ms)
+				ProcessInitializeOnLoadMethodAttributes (87ms)
+				AfterProcessingInitializeOnLoad (17ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3358 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (1.7 MB). Loaded Objects now: 3939.
+Memory consumption went from 134.3 MB to 132.6 MB.
+Total: 4.238600 ms (FindLiveObjects: 0.257200 ms CreateObjectMapping: 0.134900 ms MarkObjects: 3.351400 ms  DeleteObjects: 0.494300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 360.338962 seconds.
+  path: Assets/Audio/Music/RaccoonScoreJam_Main.mp3
+  artifactKey: Guid(b4a8e65fe39807d47bc578a8de828777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/Music/RaccoonScoreJam_Main.mp3 using Guid(b4a8e65fe39807d47bc578a8de828777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e0012707553a6dde5d56547ced042ee') in 0.058720 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004168 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.383 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1383ms)
+		BeginReloadAssembly (167ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (1091ms)
+			LoadAssemblies (112ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (292ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (90ms)
+			SetupLoadedEditorAssemblies (548ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (37ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (311ms)
+				ProcessInitializeOnLoadMethodAttributes (88ms)
+				AfterProcessingInitializeOnLoad (16ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3354 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (1.7 MB). Loaded Objects now: 3954.
+Memory consumption went from 134.2 MB to 132.5 MB.
+Total: 4.113200 ms (FindLiveObjects: 0.282800 ms CreateObjectMapping: 0.194500 ms MarkObjects: 3.058000 ms  DeleteObjects: 0.576800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
