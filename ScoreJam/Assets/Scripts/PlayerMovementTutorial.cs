@@ -55,7 +55,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
        
-        PUNIE = GroundedChack.GetComponent<GroundCheck>().PUNI;
+        PUNIE = GroundedChack.GetComponent<GroundChek>().PUNI;
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 

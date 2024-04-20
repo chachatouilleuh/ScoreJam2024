@@ -10,6 +10,7 @@ Material:
   m_Name: corps racoon
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
+  - _METALLICGLOSSMAP
   - _NORMALMAP
   - _PARALLAXMAP
   m_InvalidKeywords: []
@@ -23,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: fba9e17a34e2c0b4b87df88bd9e1477c, type: 3}
+        m_Texture: {fileID: 2800000, guid: de2292022179c5c48b979a969eb38a08, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -43,19 +44,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 945be14f0be42f34a95ad5a30e27ff3c, type: 3}
+        m_Texture: {fileID: 2800000, guid: c9f2ba9db90a8ca49b945160b48c172f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f2472aa9bcc93304d91b1981c9a41018, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: cee11746883ccf4468cee2b552b52b8b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0467396ef09a9c247ba54d2d52411e37, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 0140b215b1decb94b8f468581cf3d566, type: 3}
+        m_Texture: {fileID: 2800000, guid: e5da34bc3234e1743b7cb2308151d775, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
