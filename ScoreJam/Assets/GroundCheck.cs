@@ -8,9 +8,11 @@ public class GroundCheck : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("1");
+        PUNI = false;
     }
     void OnTriggerExit(Collider other)
     {
         Debug.Log("0");
+        PUNI = true;
     }
 }

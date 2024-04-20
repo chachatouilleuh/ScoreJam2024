@@ -72,7 +72,7 @@ public class PlayerMovementTutorial : MonoBehaviour
             moveSpeed = moveSpeed / 2;
         };
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&& PUNIE==false)
         {
             Debug.Log(grounded);
             readyToJump = false;
