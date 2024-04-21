@@ -369,6 +369,7 @@
 "Assets/Scripts/Ennemi.cs"
 "Assets/Scripts/EnnemiDetection.cs"
 "Assets/Scripts/GroundCheck.cs"
+"Assets/Scripts/GroundChek.cs"
 "Assets/Scripts/HighScoreManager.cs"
 "Assets/Scripts/PlayerMovementTutorial.cs"
 "Assets/Scripts/Racoon.cs"

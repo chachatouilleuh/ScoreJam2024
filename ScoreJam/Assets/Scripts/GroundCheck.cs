@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
@@ -8,7 +6,7 @@ public class GroundCheck : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Vérifie si l'objet entrant est le joueur (Player)
+        // Vï¿½rifie si l'objet entrant est le joueur (Player)
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("1");
@@ -18,7 +16,7 @@ public class GroundCheck : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        // Réinitialise PUNI lorsque le joueur quitte la zone de détection
+        // Rï¿½initialise PUNI lorsque le joueur quitte la zone de dï¿½tection
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("0");

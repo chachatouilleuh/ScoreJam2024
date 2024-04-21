@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Racoon : MonoBehaviour
@@ -8,7 +6,6 @@ public class Racoon : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform playerObj;
-    public Rigidbody rb;
 
     public float rotationSpeed;
 
