@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2917750086878906046}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &8384975115521038492
 VisualEffect:
@@ -137,74 +137,6 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &2917750085968011802
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2917750085968011803}
-  - component: {fileID: 2917750085968011806}
-  - component: {fileID: 2917750085968011801}
-  - component: {fileID: 2917750085968011807}
-  m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2917750085968011803
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917750085968011802}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.41983, y: 12.41983, z: 12.41983}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2917750086878906046}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2917750085968011806
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917750085968011802}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &2917750085968011801
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917750085968011802}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2917750085968011807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2917750085968011802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e75e377ffbc9b4ca998299acd92647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInColl: 0
 --- !u!1 &2917750086878906036
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +152,7 @@ GameObject:
   - component: {fileID: 2917750086878906044}
   - component: {fileID: 5874633031723938414}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Poubelle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +171,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2917750087476858825}
-  - {fileID: 2917750085968011803}
   - {fileID: 8469220530207276318}
   - {fileID: 1047230155674730483}
   - {fileID: 4303977741131393838}
@@ -282,9 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2945e5e409a28604dbd3648673b34173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameManager: {fileID: 4767758653068027095, guid: 515699437f15e46439e785afd256e462, type: 3}
   GarbageAnimControler: {fileID: 419938484208218938}
   cubePrefab: {fileID: 6827163449356734926, guid: ba901e0edaec7524080c5aee0ddf41c9, type: 3}
-  jumpHeight: 1
+  jumpHeight: 5
   cubeLifetime: 5
   ennemi: {fileID: 2917750086878906044}
   PLayer: {fileID: 0}
@@ -447,7 +379,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ab074991ae8178049b2f5b27317ac476, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab074991ae8178049b2f5b27317ac476, type: 3}
       propertyPath: m_LocalScale.x
@@ -564,7 +496,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5276592c503785143a78d13b166e1973, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5276592c503785143a78d13b166e1973, type: 3}
       propertyPath: m_LocalScale.x

@@ -5,20 +5,20 @@ using UnityEngine.VFX;
 
 public class Ennemi : MonoBehaviour
 {
+    public GameManager GameManager;
+    
     public Animator GarbageAnimControler;
     public GameObject cubePrefab;
-    public float jumpHeight = 1f;
-    public float cubeLifetime = 5f;
-    //public GameObject poubelleHitBox;
+    public float jumpHeight = 10;
+    public float cubeLifetime = 5;
+
     public NavMeshAgent ennemi;
     public Transform PLayer;
     public VisualEffect vfxEyes;
     public VisualEffect vfxSmoke;
 
-    private bool colledJunior = false;
-    private bool agroed = false;
-    private bool animationPlaying = false;
-    public bool Incombat = false;
+    private bool isCollided;
+    public bool Incombat;
 
     private GameObject spawnedCube;
     public int InitTry;
@@ -26,33 +26,37 @@ public class Ennemi : MonoBehaviour
 
     void Start()
     {
-        trys = Random.Range(0, 8);
+        trys = Random.Range(1, 8);
         InitTry = trys;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (!colledJunior)
+        if (!isCollided && other.CompareTag("Player"))
         {
-            colledJunior = true;
+            isCollided = true;
             trys--;
             GarbageAnimControler.SetBool("Shake", true);
+            StartCoroutine(ResetAnimationBoolAfterDelay(GarbageAnimControler.GetCurrentAnimatorStateInfo(0).length));
 
             if (trys >= 0)
             {
-                StartCoroutine(ResetAnimationBoolAfterDelay(GarbageAnimControler.GetCurrentAnimatorStateInfo(0).length));
-                spawnedCube = Instantiate(cubePrefab, transform.position, Quaternion.identity);
+                Vector3 spawnPosition = transform.position + Vector3.up * 2; // Ajouter un décalage vers le haut
+                spawnedCube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
                 Rigidbody rb = spawnedCube.GetComponent<Rigidbody>();
                 if (rb != null)
                     rb.AddForce(Vector3.up * Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumpHeight), ForceMode.VelocityChange);
                 StartCoroutine(DestroyCubeAfterDelay(spawnedCube, cubeLifetime));
             }
-            
-            if (trys <= 0 && !Incombat)
+            else if (trys <= 0 && !Incombat)
             {
                 Incombat = true;
                 vfxEyes.gameObject.SetActive(true);
                 vfxSmoke.gameObject.SetActive(true);
+            } 
+            else if(trys < 0 && Incombat)
+            {
+               GameManager.PlayerManager.HP--;
             }
             StartCoroutine(ResetColledJunior());
         }
@@ -67,7 +71,7 @@ public class Ennemi : MonoBehaviour
     IEnumerator ResetColledJunior()
     {
         yield return new WaitForSeconds(1);
-        colledJunior = false;
+        isCollided = false;
     }
 
     IEnumerator ResetAnimationBoolAfterDelay(float delay)

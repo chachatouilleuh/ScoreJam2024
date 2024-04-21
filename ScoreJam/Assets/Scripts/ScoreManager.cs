@@ -1,18 +1,19 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text scoreText;
-    private int score = 0;
+    public TMP_Text scoreText;
+    public int score;
+ 
+    private void Start()
+    {
+        score = 0;
+    }
 
     void Update()
     {
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + score;
     }
-
-    public void IncreaseScore(int amount)
-    {
-        score += amount;
-    }
+    
 }

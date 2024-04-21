@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 379869253071703898}
   m_Layer: 0
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 5938384006129784190}
   - component: {fileID: 5112241629367719814}
   - component: {fileID: 6163554464035268764}
+  - component: {fileID: 8717679916655734564}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Player
@@ -135,6 +136,20 @@ MonoBehaviour:
     m_Bits: 2147483647
   orientation: {fileID: 4053590664983116121}
   playerAnimator: {fileID: 2422107286969995774}
+--- !u!114 &8717679916655734564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530654281886821987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fb98a2c4cd41b4fb14bcb157c2ea98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 1
+  GameManager: {fileID: 4767758653068027095, guid: 515699437f15e46439e785afd256e462, type: 3}
 --- !u!1 &4053590664952551069
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +161,7 @@ GameObject:
   - component: {fileID: 4053590664952551068}
   m_Layer: 0
   m_Name: CameraHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +193,7 @@ GameObject:
   - component: {fileID: 4053590664983116121}
   m_Layer: 0
   m_Name: Orientation
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +224,7 @@ GameObject:
   - component: {fileID: 4053590666177247163}
   m_Layer: 0
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +258,7 @@ GameObject:
   - component: {fileID: 4053590666503511348}
   m_Layer: 0
   m_Name: LookAt
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,7 +294,7 @@ GameObject:
   - component: {fileID: 9100567150390235540}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -450,7 +465,7 @@ GameObject:
   - component: {fileID: 6209784199966064280}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,6 +590,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Raccoon
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34e4c26a37c2571499035b36e68c69d6, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: 34e4c26a37c2571499035b36e68c69d6, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5465940246521907071, guid: 34e4c26a37c2571499035b36e68c69d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -610,6 +633,10 @@ PrefabInstance:
     - target: {fileID: 8144394004440419581, guid: 34e4c26a37c2571499035b36e68c69d6, type: 3}
       propertyPath: m_Name
       value: Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144394004440419581, guid: 34e4c26a37c2571499035b36e68c69d6, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e4c26a37c2571499035b36e68c69d6, type: 3}

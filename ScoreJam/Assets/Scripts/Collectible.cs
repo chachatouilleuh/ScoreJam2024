@@ -1,21 +1,23 @@
+using System.Collections;
 using UnityEngine;
 
 public class Collectible : MonoBehaviour
-{
-    public int scoreValue = 0;
-    private ScoreManager scoreManager;
-
-    void Start()
-    {
-        scoreManager = FindObjectOfType<ScoreManager>();
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
+{ 
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            scoreManager.IncreaseScore(scoreValue);
-            Destroy(gameObject);
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>(); // Trouver l'instance du ScoreManager
+            if (scoreManager != null)
+            {
+                StartCoroutine(UpdateScore(scoreManager)); // Passer l'instance trouvée au coroutine
+            }
         }
+    }
+
+    IEnumerator UpdateScore(ScoreManager scoreManager)
+    {
+        yield return scoreManager.score++;
+        Destroy(gameObject);
     }
 }
