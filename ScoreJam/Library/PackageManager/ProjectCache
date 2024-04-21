@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638492315496979764
-    m_Hash: 2671211575
+      ticks: 638492493495969636
+    m_Hash: 2688621835
   m_LockFileStatus:
     m_FilePath: D:/Documents/GitHub/ScoreJam2024/ScoreJam/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638492315500081470
-    m_Hash: 1391894009
+      ticks: 638492493495979610
+    m_Hash: 1590997398
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
