@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182cd195a28310e479cddf7ff82822f8, type: 3}
   m_Name: LootLockerConfig
   m_EditorClassIdentifier: 
-  apiKey: 
-  token: 
-  adminToken: 
+  apiKey: dev_2eaad1d261fa410a85e14a726950c0c4
+  token: 61c605f490377896c6f0713bea8bcef47c7fd422
+  adminToken: d738123b7fb2dfab0c69a4d69cbf014946850607
   refreshToken: 
-  domainKey: 
+  domainKey: xp3dkrtz
   gameID: 0
   game_version: 1.0.0.0
-  sdk_version: 
-  deviceID: defaultPlayerId
+  sdk_version: 2.1.5
+  deviceID: 6669e9a6-ccaf-4244-ac82-819eff68ba33
   url: https://api.lootlocker.io/v1
-  adminUrl: https://api.lootlocker.io/admin
-  playerUrl: https://api.lootlocker.io/player
-  userUrl: https://api.lootlocker.io/game
-  baseUrl: https://api.lootlocker.io
+  adminUrl: https://xp3dkrtz.api.lootlocker.io/admin
+  playerUrl: https://xp3dkrtz.api.lootlocker.io/player
+  userUrl: https://xp3dkrtz.api.lootlocker.io/game
+  baseUrl: https://xp3dkrtz.api.lootlocker.io
   clientSideRequestTimeOut: 180
-  currentDebugLevel: 0
+  currentDebugLevel: 3
   allowTokenRefresh: 1
