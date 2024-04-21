@@ -1,21 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3142764896284621569
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MobileWaterShader_EKV_n_gon
-  m_Shader: {fileID: 4800000, guid: cac645c54d47a224c9b34364a0f004bd, type: 3}
-  m_ShaderKeywords: BLENDING FOAM HORIZON LIGHTING NOISE REFLECTION RENDERING TEXTURES
-    WAVES
+  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -29,6 +43,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -133,9 +151,9 @@ Material:
         m_Scale: {x: 200, y: 500}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a2356ab4a4fb5f74c83096735dc7dc9d, type: 3}
-        m_Scale: {x: 1, y: 2}
-        m_Offset: {x: -13.78818, y: -13.78818}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTexRing:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -244,6 +262,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - BumpValue: 1.2677863
     - DstMode: 3
@@ -255,9 +286,11 @@ Material:
     - _Albedo2Tiling: 500
     - _AlbedoContrast: 0.76
     - _AlbedoIntensity: 1.71
+    - _AlphaClip: 0
     - _Ambient: 0.2
     - _Attenuation: 0.39613256
     - _BLENDING: 1
+    - _Blend: 0
     - _Brightness: 1.4214286
     - _BumpReflectionStr: 0.5
     - _BumpScale: 1
@@ -273,6 +306,7 @@ Material:
     - _Contrast: 1
     - _ContrastMt: 1.4
     - _ContrastRef: 1.1
+    - _Cull: 2
     - _Cutoff: 0.52
     - _Cycle: 3
     - _Density: 1
@@ -288,7 +322,7 @@ Material:
     - _DistanceFade: 0
     - _DistortStrength: 0
     - _Distortion: 0
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EmissionMultiplier: 1
     - _EnableExternalAlpha: 0
     - _EnableProbeRelfections: 1
@@ -329,6 +363,7 @@ Material:
     - _GlossAmount: 0.03
     - _GlossMapScale: 1
     - _Glossiness: 0.714
+    - _GlossinessSource: 0
     - _GlossyReflections: 1
     - _HORIZON: 1
     - _HeightScale: 0.306
@@ -406,12 +441,14 @@ Material:
     - _PlanetSurfaceTiling: 0
     - _PowerLambert: 1
     - _ProbeReflectionIntensity: 0
+    - _QueueOffset: 0
     - _R0: 0.1
     - _REFLECTION: 1
     - _RENDERING: 1
     - _Radius: 1
     - _RampLevels: 2
     - _RealtimeReflectionIntensity: 0
+    - _ReceiveShadows: 1
     - _RefStrength: 1.311
     - _ReflToRefrExponent: 1
     - _Reflect: 1
@@ -437,15 +474,19 @@ Material:
     - _Shininess: 1.4228572
     - _Size: 15
     - _Skew: 0.5
+    - _Smoothness: 0.5
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SoftFactor: 0.0015
+    - _SpecSource: 0
     - _Specular: 0
     - _SpecularHighlights: 1
     - _Speed: 0.384
     - _SpeedX: 0.1
     - _SpeedY: 5
     - _Squared: 0
-    - _SrcBlend: 5
+    - _SrcBlend: 1
+    - _Surface: 0
     - _TextureUv1: 1
     - _TextureUv2: 1
     - _TextureUv3: 1
@@ -467,14 +508,14 @@ Material:
     - _WaveScrollSpeed: 0.1
     - _WaveSpeed: 0
     - _WaveStrength: 0
-    - _ZWrite: 0
+    - _ZWrite: 1
     - __dirty: 1
     m_Colors:
     - _ASEOutlineColor: {r: 0.5181034, g: 0.4426903, b: 0.6764706, a: 0}
     - _AlbedoColor: {r: 0.18280526, g: 0.3903058, b: 0.49056602, a: 1}
     - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
     - _BlendColor: {r: 0.29411763, g: 0.29411763, b: 0.29411763, a: 1}
-    - _Color: {r: 0.21226418, g: 0.7833151, b: 1, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _Color1: {r: 0, g: 0.7735849, b: 0.7177879, a: 1}
     - _Color2: {r: 0.6698113, g: 0.53079385, b: 0, a: 1}
     - _DeepWaterColor: {r: 0.5, g: 0.2712264, b: 0.2712264, a: 0}
