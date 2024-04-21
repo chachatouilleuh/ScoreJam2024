@@ -8,10 +8,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
-    public GameObject Idle;
-    public GameObject Run;
-
-
+    public Animator playerAnimator;
     public float groundDrag;
 
     public float jumpForce;
@@ -49,7 +46,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         readyToJump = true;
 
-        Run.SetActive(false);
+        playerAnimator.SetBool("Run",false);
     }
 
     private void Update()
@@ -90,16 +87,12 @@ public class PlayerMovementTutorial : MonoBehaviour
         };
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Idle.SetActive(false);
-            Run.SetActive(true);
+            playerAnimator.SetBool("Run",true);
         };
         if (Input.GetKeyUp(KeyCode.Z))
         {
-            Idle.SetActive(true);
-            Run.SetActive(false);
+            playerAnimator.SetBool("Run",false);
         };
-
-
 
     }
 
@@ -154,12 +147,13 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
+        playerAnimator.SetBool("Jump", true);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
     private void ResetJump()
     {
         readyToJump = true;
+        playerAnimator.SetBool("Jump",false);
     }
 
 }
