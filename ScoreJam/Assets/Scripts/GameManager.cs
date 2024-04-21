@@ -17,12 +17,13 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(DieRoutine());
     }
-
+    
     IEnumerator DieRoutine()
     {
+        // Met à jour le high score
         HighScoreManager.UpdateHighScore(ScoreManager.score);
     
-        float duration = 1;
+        float duration = 1f;
         float currentTime = 0f;
 
         // Diminuer le temps de 1 à 0 progressivement
@@ -32,9 +33,20 @@ public class GameManager : MonoBehaviour
             currentTime += 0.001f;
             yield return null;
         }
+
+        // Si le joueur bat le high score actuel
+        if (ScoreManager.score > HighScoreManager.highScore)
+        {
+            yield return HighScoreManager.SubmitScoreRoutine(ScoreManager.score);
+
+            HighScoreManager.DisplayEnterName(); // Activer le champ de texte pour que le joueur puisse entrer son nom
         
-        yield return HighScoreManager.SubmitScoreRoutine(ScoreManager.score);
-    
+            // Attendre que le champ de texte soit désactivé
+            yield return new WaitUntil(() => !HighScoreManager.enterNameField.gameObject.activeSelf);
+        
+            HighScoreManager.SetPlayerName();
+        }
+
         currentTime = 0f;
 
         // Augmenter le temps de 0 à 1 progressivement
@@ -49,5 +61,6 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 
 }
