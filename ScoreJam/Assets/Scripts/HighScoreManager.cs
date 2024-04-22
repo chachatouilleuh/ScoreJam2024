@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using LootLocker.Requests;
+//using LootLocker.Requests;
 using TMPro;
 
 public class HighScoreManager : MonoBehaviour
@@ -32,7 +32,7 @@ public class HighScoreManager : MonoBehaviour
     public void SetPlayerName()
     {
         
-        LootLockerSDKManager.SetPlayerName(enterNameField.text , (response) =>
+        /*LootLockerSDKManager.SetPlayerName(enterNameField.text , (response) =>
         {
             if (response.success)
             {
@@ -43,7 +43,7 @@ public class HighScoreManager : MonoBehaviour
             {
                 Debug.Log("Name not set " + response.errorData);
             }
-        });
+        });*/
         
     }
 
@@ -66,7 +66,7 @@ public class HighScoreManager : MonoBehaviour
     IEnumerator LoginRoutine()
     {
         bool done = false;
-        LootLockerSDKManager.StartGuestSession((response) =>
+        /*LootLockerSDKManager.StartGuestSession((response) =>
         {
             if (response.success)
             {
@@ -80,7 +80,7 @@ public class HighScoreManager : MonoBehaviour
                 Debug.Log("not logged");
             }
                 
-        });
+        });*/
         yield return new WaitWhile(() => !done);
     }
 
@@ -89,7 +89,7 @@ public class HighScoreManager : MonoBehaviour
         bool done = false;
 
         string playerID = PlayerPrefs.GetString("PlayerID");
-        LootLockerSDKManager.SubmitScore(playerID, scoreToUpload,leaderboardID, (response) =>
+        /*LootLockerSDKManager.SubmitScore(playerID, scoreToUpload,leaderboardID, (response) =>
         {
             if (response.success)
             {
@@ -101,7 +101,7 @@ public class HighScoreManager : MonoBehaviour
                 done = true;
                 Debug.Log("score not uploaded");
             }
-        });
+        });*/
         yield return new WaitWhile(() => !done);
     }
 
@@ -111,7 +111,7 @@ public class HighScoreManager : MonoBehaviour
         string tempPlayerNames = "by\n";
         string tempPlayerScores = "High Score\n";
 
-        LootLockerSDKManager.GetScoreList(leaderboardID, count, 0, (response) =>
+        /*LootLockerSDKManager.GetScoreList(leaderboardID, count, 0, (response) =>
         {
             if (response.success)
             {
@@ -145,7 +145,7 @@ public class HighScoreManager : MonoBehaviour
 
             // Assurez-vous que le drapeau done est défini pour indiquer que la requête est terminée
             done = true;
-        });
+        });*/
 
         // Attendre que la requête soit terminée avant de continuer
         yield return new WaitWhile(() => !done);

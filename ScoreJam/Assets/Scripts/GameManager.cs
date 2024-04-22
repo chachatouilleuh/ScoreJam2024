@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public HighScoreManager HighScoreManager;
-    public ScoreManager ScoreManager;
+    //public ScoreManager ScoreManager;
     public PlayerManager PlayerManager;
 
     private bool endGame;
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Si le joueur bat le high score actuel
-        if (ScoreManager.score >= HighScoreManager.highScore)
+        /*if (ScoreManager.score >= HighScoreManager.highScore)
         {
             Debug.Log("Le joueur a battu le high score actuel.");
             HighScoreManager.DisplayEnterName(); // Activer le champ de texte pour que le joueur puisse entrer son nom
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Le joueur n'a pas battu le high score actuel : " + ScoreManager.score + " < " +  HighScoreManager.highScore);
-        }
+        }*/
         
         Debug.Log("Le nom est validé je reprends le temps");
         currentTime = 0.25f;
