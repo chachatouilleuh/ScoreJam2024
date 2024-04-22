@@ -1,14 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RestartButton : MonoBehaviour
 {
-    public int sceneIndex; // Index de la scène à charger
+    public int sceneIndex; // Index de la scï¿½ne ï¿½ charger
 
     public void RestartGame()
     {
-        // Charger la scène en utilisant son index
-        SceneManager.LoadScene(0);
+        // Charger la scï¿½ne en utilisant son index
+        SceneManager.LoadScene(1);
         Debug.Log("niga");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

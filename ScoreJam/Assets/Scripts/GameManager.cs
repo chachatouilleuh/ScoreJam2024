@@ -7,12 +7,16 @@ public class GameManager : MonoBehaviour
     public HighScoreManager HighScoreManager;
     public ScoreManager ScoreManager;
     public PlayerManager PlayerManager;
+    public AudioManager AudioManager;
 
-    private bool endGame;
+    public GameObject canvasLose;
+
+    public bool endGame;
 
     private void Awake()
     {
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
     public void EndGame()
@@ -28,11 +32,19 @@ public class GameManager : MonoBehaviour
     {
         float duration = 1f;
         float currentTime = 0f;
-
+        
+        PlayerManager.playerAnimator.SetBool("Die", true);
+        canvasLose.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
+        PlayerManager.playerAudioSource.clip = PlayerManager.DieClip;
+        PlayerManager.playerAudioSource.Play();
+        
         // Diminuer le temps de 1 à 0 progressivement
         while (currentTime < duration)
         {
-            Time.timeScale = Mathf.Lerp(1f, 0.25f, currentTime / duration);
+            Time.timeScale = Mathf.Lerp(1f, 0.5f, currentTime / duration);
             currentTime += 0.001f;
             yield return null;
         }
@@ -62,7 +74,7 @@ public class GameManager : MonoBehaviour
         while (currentTime < duration)
         {
             Time.timeScale = Mathf.Lerp(0.25f, 1f, currentTime / duration);
-            currentTime += 0.01f;
+            currentTime += 0.001f;
             yield return null;
         }
         Debug.Log("Le temps redevient à la normale");

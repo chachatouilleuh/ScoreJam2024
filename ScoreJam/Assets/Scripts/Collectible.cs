@@ -1,23 +1,34 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Collectible : MonoBehaviour
-{ 
+{
+    private GameManager gameManager;
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            ScoreManager scoreManager = FindObjectOfType<ScoreManager>(); // Trouver l'instance du ScoreManager
-            if (scoreManager != null)
+             // Trouver l'instance du ScoreManager
+            if (gameManager != null)
             {
-                StartCoroutine(UpdateScore(scoreManager)); // Passer l'instance trouvée au coroutine
+                gameManager.ScoreManager.StartCoroutine(UpdateScore(gameManager)); // Passer l'instance trouvée au coroutine
             }
         }
     }
 
-    IEnumerator UpdateScore(ScoreManager scoreManager)
+    IEnumerator UpdateScore(GameManager gameManager)
     {
-        yield return scoreManager.score++;
+        gameManager.PlayerManager.playerAudioSource.clip = gameManager.PlayerManager.biteClip;
+        gameManager.PlayerManager.playerAudioSource.pitch = Random.Range(0.9f, 1.1f); ;
+        gameManager.PlayerManager.playerAudioSource.Play();
+        yield return gameManager.ScoreManager.score++;
         Destroy(gameObject);
     }
 }

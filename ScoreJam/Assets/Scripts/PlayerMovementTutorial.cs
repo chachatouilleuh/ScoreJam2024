@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
+    public GameManager GameManager;
     public float moveSpeed = 10f;
     public float sprintMultiplier = 2f;
     public float groundDrag = 6f;
@@ -17,10 +18,14 @@ public class PlayerMovementTutorial : MonoBehaviour
     private bool grounded;
     private bool readyToJump = true;
 
+    private AudioSource playerAudioSource;
+    public AudioClip jumpClip;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        playerAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -43,39 +48,48 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void MovementInput()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        Vector3 moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        moveDirection.Normalize();
+        if (!GameManager.endGame)
+        {
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+            Vector3 moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            moveDirection.Normalize();
 
-        if (grounded)
-            rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
-        else
-            rb.AddForce(moveDirection * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-        
-        playerAnimator.SetBool("Run", moveDirection.magnitude > 0);
+            if (grounded)
+                rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
+            else
+                rb.AddForce(moveDirection * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            
+            playerAnimator.SetBool("Run", moveDirection.magnitude > 0);
 
-        SpeedControl();
+            SpeedControl(); 
+        }
     }
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+        if (Input.GetKeyDown(jumpKey) && readyToJump && grounded && !GameManager.endGame)
         {
             readyToJump = false;
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             playerAnimator.SetBool("Jump", true);
             Invoke(nameof(ResetJump), jumpCooldown);
+            playerAudioSource.clip = jumpClip;
+            playerAudioSource.pitch = Random.Range(0.9f, 1.1f);
+            playerAudioSource.Play();
         }
     }
 
     private void HandleSprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-            moveSpeed *= sprintMultiplier;
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-            moveSpeed /= sprintMultiplier;
+        if (!GameManager.endGame)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                moveSpeed *= sprintMultiplier;
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+                moveSpeed /= sprintMultiplier; 
+        }
     }
 
     private void MovePlayer()

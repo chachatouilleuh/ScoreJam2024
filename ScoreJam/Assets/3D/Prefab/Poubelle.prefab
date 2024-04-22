@@ -217,8 +217,8 @@ MonoBehaviour:
   GameManager: {fileID: 4767758653068027095, guid: 515699437f15e46439e785afd256e462, type: 3}
   GarbageAnimControler: {fileID: 419938484208218938}
   cubePrefab: {fileID: 6827163449356734926, guid: ba901e0edaec7524080c5aee0ddf41c9, type: 3}
-  jumpHeight: 5
-  cubeLifetime: 5
+  jumpHeight: 2
+  cubeLifetime: 10
   ennemi: {fileID: 2917750086878906044}
   PLayer: {fileID: 0}
   vfxEyes: {fileID: 3775148183359323765}
@@ -226,6 +226,8 @@ MonoBehaviour:
   Incombat: 0
   InitTry: 0
   trys: 0
+  hitClip: {fileID: 8300000, guid: 75937a7fd22e52a4a8454b9a61a87773, type: 3}
+  monsterClip: {fileID: 8300000, guid: 9e74c2509a49f6f49bd45a730ddbdd46, type: 3}
 --- !u!195 &2917750086878906044
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -259,8 +261,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7091565, y: 1.175787, z: 1.5506401}
-  m_Center: {x: -0.08478499, y: 2.1408815, z: -0.035270244}
+  m_Size: {x: 1.7091565, y: 3.5518637, z: 1.5506401}
+  m_Center: {x: -0.084784985, y: 0.9528432, z: -0.03527027}
 --- !u!82 &-2545840875311026188
 AudioSource:
   m_ObjectHideFlags: 0
@@ -281,7 +283,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 6.8273926
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

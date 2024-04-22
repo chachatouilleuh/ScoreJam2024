@@ -108,8 +108,8 @@ public class HighScoreManager : MonoBehaviour
     public IEnumerator FetchTopHighScoreRoutine(int count)
     {
         bool done = false;
-        string tempPlayerNames = "by\n";
-        string tempPlayerScores = "High Score\n";
+        string tempPlayerNames = "";
+        string tempPlayerScores = "";
 
         LootLockerSDKManager.GetScoreList(leaderboardID, count, 0, (response) =>
         {
@@ -125,7 +125,7 @@ public class HighScoreManager : MonoBehaviour
                     else
                         tempPlayerNames += members[i].player.id;
 
-                    tempPlayerNames += "\n";
+                    //tempPlayerNames += "\n";
 
                     // Ajoutez également les scores dans la chaîne temporaire des scores
                     tempPlayerScores += members[i].score + "\n";
