@@ -384,6 +384,7 @@
 "Assets/Scripts/Racoon.cs"
 "Assets/Scripts/RestartButton.cs"
 "Assets/Scripts/ScoreManager.cs"
+"Assets/WatA.cs"
 -langversion:9.0
 
 /deterministic

@@ -41,7 +41,7 @@ public class Ennemi : MonoBehaviour
 
             if (trys >= 0)
             {
-                Vector3 spawnPosition = transform.position + Vector3.up * 2; // Ajouter un décalage vers le haut
+                Vector3 spawnPosition = transform.position + Vector3.up * 3; // Ajouter un décalage vers le haut
                 spawnedCube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
                 Rigidbody rb = spawnedCube.GetComponent<Rigidbody>();
                 if (rb != null)
