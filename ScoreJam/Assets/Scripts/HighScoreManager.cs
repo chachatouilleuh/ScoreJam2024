@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using LootLocker.Requests;
@@ -16,33 +17,36 @@ public class HighScoreManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(SetUpRoutine());
         highScore = PlayerPrefs.GetInt("HighScore");
         highScoreText.text = highScore.ToString();
-        StartCoroutine(SetUpRoutine());
     }
 
     public void DisplayEnterName()
     {
+        Debug.Log("je display");
         enterNameField.gameObject.SetActive(true);
-        enterNameField.Select(); // Met le focus sur le champ de texte
         enterNameField.ActivateInputField();
     }
     
     public void SetPlayerName()
     {
+        
         LootLockerSDKManager.SetPlayerName(enterNameField.text , (response) =>
         {
             if (response.success)
             {
                 Debug.Log("Name successfully set");
-                enterNameField.gameObject.SetActive(false); // Désactiver le champ de texte après avoir envoyé le nom
+                enterNameField.gameObject.SetActive(false);
             }
             else
             {
                 Debug.Log("Name not set " + response.errorData);
             }
         });
+        
     }
+
     
     IEnumerator SetUpRoutine()
     {
@@ -52,7 +56,7 @@ public class HighScoreManager : MonoBehaviour
 
     public void UpdateHighScore(int score)
     {
-        if (score > highScore)
+        if (score >= highScore)
         {
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
@@ -104,38 +108,51 @@ public class HighScoreManager : MonoBehaviour
     public IEnumerator FetchTopHighScoreRoutine(int count)
     {
         bool done = false;
-        LootLockerSDKManager.GetScoreList(leaderboardID, count,0, (response) =>
+        string tempPlayerNames = "by\n";
+        string tempPlayerScores = "High Score\n";
+
+        LootLockerSDKManager.GetScoreList(leaderboardID, count, 0, (response) =>
         {
             if (response.success)
             {
-                string tempPlayerNames = "Name\n";
-                string tempPlayerScores = "High Score\n";
-
                 LootLockerLeaderboardMember[] members = response.items;
 
                 for (int i = 0; i < members.Length; ++i)
                 {
-                    tempPlayerNames += members[i].rank + ". ";
+                    //tempPlayerNames += members[i].rank + ". ";
                     if (members[i].player.name != "")
                         tempPlayerNames += members[i].player.name;
                     else
                         tempPlayerNames += members[i].player.id;
-                    
-                    tempPlayerScores += members[i].score + "\n";
+
                     tempPlayerNames += "\n";
-                    
-                    playerName.text = tempPlayerNames;
-                    highScoreText.text = tempPlayerScores;
+
+                    // Ajoutez également les scores dans la chaîne temporaire des scores
+                    tempPlayerScores += members[i].score + "\n";
+
+                    // Mettez à jour le highScore ici pour qu'il corresponde au dernier score de la liste
+                    highScore = members[i].score;
+
+                    // Sortez de la boucle dès que vous avez ajouté un nom
+                    break;
                 }
                 Debug.Log("score fetched");
-                done = true;
             }
             else
             {
-                done = true;
                 Debug.Log("score not fetched");
             }
+
+            // Assurez-vous que le drapeau done est défini pour indiquer que la requête est terminée
+            done = true;
         });
+
+        // Attendre que la requête soit terminée avant de continuer
         yield return new WaitWhile(() => !done);
+
+        // Assurez-vous d'attribuer les chaînes de noms et de scores après que la requête soit terminée
+        playerName.text = tempPlayerNames;
+        highScoreText.text = tempPlayerScores;
     }
+
 }
