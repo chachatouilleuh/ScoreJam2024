@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 public class Ennemi : MonoBehaviour
 {
     public GameManager GameManager;
-    
+
     public Animator GarbageAnimControler;
     public GameObject cubePrefab;
     public float jumpHeight = 10;
@@ -50,12 +50,24 @@ public class Ennemi : MonoBehaviour
                 ennemiAudioSource.clip = hitClip;
                 ennemiAudioSource.pitch = Random.Range(0.9f, 1.1f); // Modifiez le pitch de façon aléatoire
                 ennemiAudioSource.Play();
-                
+
                 Vector3 spawnPosition = transform.position + Vector3.up * 3; // Ajouter un décalage vers le haut
+                Vector3 forwardDirection = transform.forward; // Utiliser la direction de l'ennemi comme direction de lancement
+
+                RaycastHit hit;
+                if (Physics.Raycast(spawnPosition, forwardDirection, out hit, Mathf.Infinity))
+                {
+                    if (hit.collider.CompareTag("Wall"))
+                    {
+                        // Si le rayon frappe un mur, ajustez la direction de lancement
+                        forwardDirection = Vector3.Reflect(forwardDirection, hit.normal);
+                    }
+                }
+
                 spawnedCube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
                 Rigidbody rb = spawnedCube.GetComponent<Rigidbody>();
                 rb.AddForce(Vector3.up * Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumpHeight), ForceMode.VelocityChange);
-                rb.AddForce(Vector3.forward * Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumpHeight), ForceMode.VelocityChange);
+                rb.AddForce(forwardDirection * Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumpHeight), ForceMode.VelocityChange);
                 StartCoroutine(DestroyCubeAfterDelay(spawnedCube, cubeLifetime));
             }
             else if (trys <= 0 && !Incombat)
@@ -64,8 +76,8 @@ public class Ennemi : MonoBehaviour
                 StartCoroutine(SwitchSound());
                 vfxEyes.gameObject.SetActive(true);
                 vfxSmoke.gameObject.SetActive(true);
-            } 
-            else if(trys < 0 && Incombat)
+            }
+            else if (trys < 0 && Incombat)
             {
                 GameManager.PlayerManager.HP--;
             }
@@ -87,6 +99,7 @@ public class Ennemi : MonoBehaviour
         ennemiAudioSource.loop = true;
         ennemiAudioSource.Play();
     }
+
     IEnumerator ResetColledJunior()
     {
         yield return new WaitForSeconds(1);

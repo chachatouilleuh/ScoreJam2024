@@ -43,7 +43,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void GroundCheck()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, 1.3f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
     }
 
     private void MovementInput()

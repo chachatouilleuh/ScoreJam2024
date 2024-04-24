@@ -1,4 +1,5 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,12 @@ public class GameManager : MonoBehaviour
     public PlayerManager PlayerManager;
     public AudioManager AudioManager;
 
+    public CinemachineVirtualCamera loseCam;
+    public CinemachineVirtualCamera winCam;
+
     public GameObject canvasLose;
+    public GameObject canvasWin;
+    public GameObject fadeBlack;
 
     public bool endGame;
 
@@ -17,6 +23,9 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.visible = false;
+        PlayerManager.playerCamera.gameObject.SetActive(true);
+        loseCam.gameObject.SetActive(false);
+        winCam.gameObject.SetActive(false);
     }
 
     public void EndGame()
@@ -30,18 +39,18 @@ public class GameManager : MonoBehaviour
     
     IEnumerator DieRoutine()
     {
-        float duration = 1f;
+        float duration = .75f;
         float currentTime = 0f;
         
         PlayerManager.playerAnimator.SetBool("Die", true);
-        canvasLose.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        
         PlayerManager.playerAudioSource.clip = PlayerManager.DieClip;
         PlayerManager.playerAudioSource.Play();
-        
-        // Diminuer le temps de 1 à 0 progressivement
+        fadeBlack.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        /*
+        //Diminuer le temps de 1 à 0 progressivement
         while (currentTime < duration)
         {
             Time.timeScale = Mathf.Lerp(1f, 0.5f, currentTime / duration);
@@ -49,36 +58,44 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
+        //Augmenter le temps de 0 à 1 progressivement
+        while (currentTime < duration)
+        {
+            Time.timeScale = Mathf.Lerp(0.5f, 1f, currentTime / duration);
+            currentTime += 0.1f;
+            yield return null;
+        }
+        */
+
         // Si le joueur bat le high score actuel
         if (ScoreManager.score >= HighScoreManager.highScore)
         {
-            Debug.Log("Le joueur a battu le high score actuel.");
-            HighScoreManager.DisplayEnterName(); // Activer le champ de texte pour que le joueur puisse entrer son nom
+            HighScoreManager.DisplayEnterName();
+            winCam.gameObject.SetActive(true);
+            canvasWin.SetActive(true);
+            PlayerManager.playerCamera.gameObject.SetActive(false);
+            //Debug.Log("Le joueur a battu le high score actuel.");
+            // Activer le champ de texte pour que le joueur puisse entrer son nom
         
             // Attendre que le champ de texte soit activé
             yield return new WaitWhile(() => HighScoreManager.enterNameField.gameObject.activeSelf);
-
+            
             // Met à jour le high score
             HighScoreManager.UpdateHighScore(ScoreManager.score);
             yield return HighScoreManager.SubmitScoreRoutine(ScoreManager.score);
         }
         else
         {
-            Debug.Log("Le joueur n'a pas battu le high score actuel : " + ScoreManager.score + " < " +  HighScoreManager.highScore);
+            loseCam.gameObject.SetActive(true);
+            canvasLose.SetActive(true);
+            PlayerManager.playerCamera.gameObject.SetActive(false);
+            //Debug.Log("Le joueur n'a pas battu le high score actuel : " + ScoreManager.score + " < " +  HighScoreManager.highScore);
         }
         
-        Debug.Log("Le nom est validé je reprends le temps");
-        currentTime = 0.25f;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         
-        // Augmenter le temps de 0 à 1 progressivement
-        while (currentTime < duration)
-        {
-            Time.timeScale = Mathf.Lerp(0.25f, 1f, currentTime / duration);
-            currentTime += 0.001f;
-            yield return null;
-        }
-        Debug.Log("Le temps redevient à la normale");
-        Time.timeScale = 1f;
+        yield return new WaitForSeconds(15);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

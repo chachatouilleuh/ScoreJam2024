@@ -388,7 +388,7 @@
 "Assets/Scripts/ScoreManager.cs"
 "Assets/Scripts/WatA.cs"
 -langversion:9.0
-
+/unsafe+
 /deterministic
 /optimize+
 /debug:portable

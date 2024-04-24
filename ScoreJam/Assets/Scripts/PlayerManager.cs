@@ -1,4 +1,5 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public AudioSource playerAudioSource;
     public AudioClip biteClip;
     public AudioClip DieClip;
+    public CinemachineFreeLook playerCamera;
 
     private void Start()
     {
